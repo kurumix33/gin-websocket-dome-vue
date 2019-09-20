@@ -1,6 +1,17 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-20 15:54:23
+ * @LastEditTime: 2019-09-20 19:22:32
+ * @LastEditors: Please set LastEditors
+ -->
 # one
 
 > A Vue.js project
+
+## 这个适用于 Go Gin-websocket-dome 的前端页面
+
+> 唉，还是没有人帮我做前端我也只好自己学前端了╮(╯▽╰)╭
 
 ## Build Setup
 
