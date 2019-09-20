@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-20 17:00:20
- * @LastEditTime: 2019-09-20 18:36:50
+ * @LastEditTime: 2019-09-20 21:43:21
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -42,7 +42,8 @@
       onSubmit (formName) {
        this.$refs[formName].validate((valid) => {
           if (valid) {
-             this.$router.push({path:'/'})
+            this.saveStatus()
+            this.$router.push({path:'happy'})
           } else {
             this.$message({
           message: '臭弟弟，没输入全！',
@@ -50,7 +51,10 @@
         });
           }
         });
+      },
 
+      saveStatus () {
+        sessionStorage.setItem("status" , this.form.username)
       }
     },
 

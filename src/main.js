@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-20 15:54:23
- * @LastEditTime: 2019-09-20 17:54:24
+ * @LastEditTime: 2019-09-20 21:36:59
  * @LastEditors: Please set LastEditors
  */
 // The Vue build version to load with the `import` command
@@ -14,10 +14,25 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+
+router.beforeEach((to , from , next) => {
+
+  if(to.name == 'Happy' && to.meta.needLogin ){
+    if(!sessionStorage.getItem("status")){
+      next({ name: "Login" })
+    }
+  }
+
+  next()
+
+
+})
+
 Vue.use(Router)
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+
 
 
 /* eslint-disable no-new */
