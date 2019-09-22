@@ -56,7 +56,7 @@
               console.log(req)
               if (req.data.error) {
                 this.$message({
-                  message: '臭弟弟，这个输入是错误的！',
+                  message: "臭弟弟," + req.data.error,
                   type: 'warning'
                 })
               }else{

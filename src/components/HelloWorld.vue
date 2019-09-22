@@ -13,6 +13,9 @@
     <h3>
       <router-link to="/login">登陆页往这里 </router-link>
     </h3>
+	<h3>
+		<router-link to="/register">你是新来的？来这里，有好康的 </router-link>
+	</h3>
   </div>
 </template>
 
