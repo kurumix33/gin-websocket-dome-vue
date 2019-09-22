@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-20 17:00:20
- * @LastEditTime: 2019-09-20 21:43:21
+ * @LastEditTime: 2019-09-22 16:45:55
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -40,14 +40,38 @@
     },
     methods: {
       onSubmit (formName) {
+
        this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.saveStatus()
-            this.$router.push({path:'happy'})
+
+
+            this.$axios({
+              data: {
+                username: this.form.username,
+                password: this.form.password
+              },
+              method: "POST",
+              url: "/api/login"
+            }).then((req)=>{
+              console.log(req)
+              if (req.data.error) {
+                this.$message({
+                  message: '臭弟弟，这个输入是错误的！',
+                  type: 'warning'
+                })
+              }else{
+                this.saveStatus()
+                this.$router.push({path:'happy'})
+              }
+
+            }).catch((req)=>{
+              console.log(req)
+            })
+
           } else {
             this.$message({
-          message: '臭弟弟，没输入全！',
-          type: 'warning'
+              message: '臭弟弟，没输入全！',
+              type: 'warning'
         });
           }
         });
